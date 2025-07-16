@@ -2,24 +2,246 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/tailwindcss.output.css" />
     <title>MyCodeWorks</title>
 </head>
 
 <body>
+    <nav class="xl:pl-60 sticky left-0 top-0 z-50 w-full bg-white shadow-dark-mild dark:bg-body-dark mb-16">
+        <div class="px-3">
+            <div class="relative flex h-[58px] items-center justify-between">
+                <div class="flex flex-1 items-center sm:items-stretch sm:justify-start">
+                    <div class="flex flex-shrink-0 items-center">
+                        <div id="hamburger" class="xl:hidden me-4 flex text-neutral-400" data-twe-sidenav-toggle-ref=""
+                            data-twe-target="#sidenav-main" aria-expanded="false">
+                            <a href="#" class="text-neutral-400">
+                                <svg fill="hsl(224, 7.2%, 40%)" viewBox="0 0 100 80" width="20" height="20">
+                                    <rect width="80" height="14"></rect>
+                                    <rect y="30" width="80" height="14"></rect>
+                                    <rect y="60" width="80" height="14"></rect>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="te-search-container" class="relative hidden md:flex md:items-center">
+                        <form class="relative mb-0 flex flex-wrap items-stretch">
+                            <style>
+                                #te-search-input:focus-within {
+                                    box-shadow: inset 0 0 0 1px #3b71ca;
+                                }
+                            </style>
+                            <input id="te-search-input" autocomplete="off" type="search"
+                                class="relative m-0 inline-block w-[1%] min-w-[225px] flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-1 text-base font-normal text-gray-700 outline-none transition duration-300 ease-in-out focus:border-blue-600 focus:text-gray-700 focus:shadow-twe-primary dark:border-neutral-600 dark:text-gray-200 dark:placeholder:text-gray-200 dark:autofill:shadow-autofill"
+                                placeholder='Search (ctrl + "/" to focus)' />
+                            <span
+                                class="flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-gray-700 dark:text-gray-200">
+                                <span class="text-neutral-400" id="te-search-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="3" stroke="currentColor" class="h-5 w-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </span>
+                        </form>
+                        <div id="te-search-dropdown"
+                            class="lpy-2 absolute top-[36px] z-[999999] hidden w-full overflow-hidden rounded bg-white shadow-md dark:bg-neutral-700">
+                            <ul id="te-search-list"
+                                class="relative max-h-[265px] w-full overflow-y-scroll pt-0 [&::-webkit-scrollbar]:hidden perfect-scrollbar group/ps overflow-hidden [overflow-anchor:none] touch-none">
+                                <div class="ps__rail-x group/x absolute bottom-0 h-[0.9375rem] hidden opacity-0 transition-[background-color,_opacity] duration-200 ease-linear motion-reduce:transition-none z-[1035] group-[&.ps--active-x]/ps:block group-hover/ps:opacity-60 group-focus/ps:opacity-60 group-[&.ps--scrolling-x]/ps:opacity-60 hover:!opacity-90 focus:!opacity-90 [&.ps--clicking]:!opacity-90 outline-none group-[&.ps--active-x]/ps:bg-transparent hover:!bg-[#eee] focus:!bg-[#eee] [&.ps--clicking]:!bg-[#eee] dark:hover:!bg-[#9e9e9e] dark:focus:!bg-[#9e9e9e] dark:[&.ps--clicking]:!bg-[#9e9e9e]"
+                                    style="
+                      left: 0px;
+                      top: 0px;
+                      transform: translateY(calc(-100% + 0px));
+                    ">
+                                    <div class="ps__thumb-x absolute bottom-0.5 rounded-md h-1.5 group-focus/ps:opacity-100 group-active/ps:opacity-100 [transition:background-color_.2s_linear,_height_.2s_ease-in-out] group-hover/x:h-[11px] group-focus/x:h-[0.6875rem] group-[&.ps--clicking]/x:bg-[#999] group-[&.ps--clicking]/x:h-[11px] outline-none bg-[#9e9e9e] group-hover/x:bg-[#9e9e9e] group-focus/x:bg-[#9e9e9e] group-[&.ps--clicking]/x:bg-[#9e9e9e] dark:bg-[#eee] dark:group-hover/x:bg-[#eee] dark:group-focus/x:bg-[#eee] dark:group-[&.ps--clicking]/x:bg-[#eee]"
+                                        tabindex="0" style="left: 0px; width: 0px"></div>
+                                </div>
+                                <div class="ps__rail-y group/y absolute end-0 w-[0.9375rem] hidden opacity-0 transition-[background-color,_opacity] duration-200 ease-linear motion-reduce:transition-none z-[1035] group-[&.ps--active-y]/ps:block group-hover/ps:opacity-60 group-focus/ps:opacity-60 group-[&.ps--scrolling-y]/ps:opacity-60 hover:!opacity-90 focus:!opacity-90 [&.ps--clicking]:!opacity-90 outline-none group-[&.ps--active-y]/ps:bg-transparent hover:!bg-[#eee] focus:!bg-[#eee] [&.ps--clicking]:!bg-[#eee] dark:hover:!bg-[#9e9e9e] dark:focus:!bg-[#9e9e9e] dark:[&.ps--clicking]:!bg-[#9e9e9e]"
+                                    style="
+                      top: 0px;
+                      left: 0px;
+                      transform: translateX(calc(-100% + 0px));
+                    ">
+                                    <div class="ps__thumb-y absolute end-0.5 rounded-md w-1.5 group-focus/ps:opacity-100 group-active/ps:opacity-100 [transition:background-color_.2s_linear,_width_.2s_ease-in-out,_opacity] group-hover/y:w-[11px] group-focus/y:w-[0.6875rem] group-[&.ps--clicking]/y:w-[11px] outline-none bg-[#9e9e9e] group-hover/y:bg-[#9e9e9e] group-focus/y:bg-[#9e9e9e] group-[&.ps--clicking]/y:bg-[#9e9e9e] dark:bg-[#eee] dark:group-hover/y:bg-[#eee] dark:group-focus/y:bg-[#eee] dark:group-[&.ps--clicking]/y:bg-[#eee]"
+                                        tabindex="0" style="top: 0px; height: 0px"></div>
+                                </div>
+                            </ul>
+                            <hr class="my-0 dark:border-neutral-600" />
+                            <p class="my-4 me-4 text-end text-xs text-neutral-600 dark:text-neutral-100">
+                                search results: <strong id="te-search-count"></strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="ms-auto hidden items-center sm:flex">
+                        <div class="flex">
+                            <div class="relative" data-twe-dropdown-ref="">
+                                <button
+                                    class="hidden items-center py-2 text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 sm:flex sm:px-3"
+                                    type="button" id="dropdownMenuButton1" data-twe-dropdown-toggle-ref=""
+                                    aria-expanded="false">
+                                    Docs
+                                    <span class="w-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                            class="h-5 w-5">
+                                            <path fill-rule="evenodd"
+                                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </span>
+                                </button>
+                                <ul class="absolute z-[1000] float-left m-0 hidden min-w-[180px] list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg data-[twe-dropdown-show]:block dark:bg-surface-dark"
+                                    aria-labelledby="dropdownMenuButton1" data-twe-dropdown-menu-ref="">
+                                    <li>
+                                        <a class="flex w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                                            href="/" data-twe-dropdown-item-ref="">
+                                            <img src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/en/_mdb5/_assets/img/icons/javascript.webp"
+                                                alt="" class="me-2 h-4 w-4" />
+                                            Standard</a>
+                                    </li>
+                                    <li>
+                                        <a class="flex w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                                            href="/docs/react" data-twe-dropdown-item-ref="">
+                                            <img src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/en/_mdb5/_assets/img/icons/react.webp"
+                                                alt="" class="me-2 h-4 w-4" />
+                                            React</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <a href="/goto-1/"
+                                class="hidden py-2 text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 sm:block sm:px-2">Goto-1</a>
+
+                            <a href="/goto-2/"
+                                class="hidden py-2 text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 sm:block sm:px-2">Goto-2</a>
+
+                            <a href="/goto-3/"
+                                class="hidden py-2 text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 sm:block sm:px-2">Goto-3</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute inset-y-0 right-0 flex items-center pe-0 sm:static sm:inset-auto sm:ms-4">
+                    <div id="theme-switcher" class="w-8">
+                        <button
+                            class="rounded-2 flex items-center justify-center whitespace-nowrap px-1.5 py-2 uppercase text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 sm:p-2"
+                            type="button" id="themeSwitcher" data-twe-dropdown-toggle-ref=""
+                            data-twe-dropdown-position="dropend" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="inline-block h-5 w-5">
+                                <path
+                                    d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z">
+                                </path>
+                            </svg>
+                        </button>
+                        <ul class="absolute z-[1000] float-left m-0 hidden w-[120px] list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg data-[twe-dropdown-show]:block dark:bg-surface-dark"
+                            aria-labelledby="themeSwitcher" data-twe-dropdown-menu-ref="">
+                            <li class="text flex scale-[0.8] items-center justify-center py-1 font-bold text-gray-400">
+                                <svg class="-ms-1 fill-gray-400" xmlns="http://www.w3.org/2000/svg" height="20"
+                                    width="20">
+                                    <path
+                                        d="M7 17v-5.792H3L10 2l7 9.208h-4V17Zm1.5-1.5h3V9.708h2.438L10 4.438l-3.938 5.27H8.5ZM10 9.708Z">
+                                    </path>
+                                </svg>
+                                <span class="me-2 ms-1">+</span>
+                                <span>D</span>
+                            </li>
+
+                            <li>
+                                <a class="block w-full whitespace-nowrap bg-white px-3 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                                    href="#" data-theme="light" data-twe-dropdown-item-ref="">
+                                    <div class="pointer-events-none">
+                                        <div class="inline-block w-[24px] text-center align-middle"
+                                            data-theme-icon="light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                fill="currentColor" class="inline-block h-5 w-5">
+                                                <path
+                                                    d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <span data-theme-name="light">Light</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="block w-full whitespace-nowrap bg-white px-3 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                                    href="#" data-theme="dark" data-twe-dropdown-item-ref="">
+                                    <div class="pointer-events-none">
+                                        <div class="-mt-1 inline-block w-[24px] text-center align-middle"
+                                            data-theme-icon="dark">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                fill="currentColor" class="inline-block h-4 w-4">
+                                                <path fill-rule="evenodd"
+                                                    d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <span data-theme-name="dark">Dark</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="block w-full whitespace-nowrap bg-white px-3 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                                    href="#" data-theme="system" data-twe-dropdown-item-ref="">
+                                    <div class="pointer-events-none">
+                                        <div class="inline-block w-[24px] text-center text-primary"
+                                            data-theme-icon="system">
+                                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"
+                                                class="inline-block w-4" role="img" viewBox="0 0 640 512">
+                                                <path fill="currentColor"
+                                                    d="M128 32C92.7 32 64 60.7 64 96V352h64V96H512V352h64V96c0-35.3-28.7-64-64-64H128zM19.2 384C8.6 384 0 392.6 0 403.2C0 445.6 34.4 480 76.8 480H563.2c42.4 0 76.8-34.4 76.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <span data-theme-name="system" class="text-primary">System</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="https://github.com/listenzcc/MyCodeWorks" target="_blank"
+                        class="rounded-md px-1.5 py-2 text-sm font-medium text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 sm:p-2">
+                        <span class="h-4 w-4 block">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 496 512">
+                                <path
+                                    d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+                                </path>
+                            </svg>
+                        </span>
+                    </a>
+
+                    <span id="dpl-navbar-new-right-buttons" class="flex"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <section class="content">
         <div>
             <h1>My code works</h1>
-            <p>Take the beneficial of the code works.</p>
-            <p>And hope the codes work well.</p>
+            <br />
+            <p>
+                Take the beneficial of the code works. And hope the codes work well.
+            </p>
         </div>
 
     </section>
 
     <section class="footer">
-        <a href="https://github.com/listenzcc/MyCodeWorks">Repository</a>
+        <p>Author: listenzcc@gmail.com</p>
+        <p>
+            Github:
+            <a href="https://github.com/listenzcc/MyCodeWorks">Repository</a>
+        </p>
+        <p>Place: Beijing, China</p>
     </section>
 </body>
 

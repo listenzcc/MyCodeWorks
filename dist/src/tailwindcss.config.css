@@ -1,0 +1,113 @@
+/*
+The tailwindcss setup.
+
+优先级顺序
+    utilities > components > base
+
+最佳实践
+    基础样式：使用 @layer base 设置元素默认样式
+    组件样式：使用 @layer components 创建可复用组件
+    工具类：优先使用内置工具类，必要时用 @layer utilities 扩展
+
+They are automatically imported in v4
+<https://tailwindcss.com/docs/upgrade-guide>
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*/
+
+@import "tailwindcss";
+
+@layer components {
+  section.content {
+    @apply lg:w-4/5;
+    @apply flex;
+    @apply w-full;
+    @apply max-w-[8in];
+    @apply flex-col;
+    @apply px-3;
+    @apply mx-auto;
+    @apply shadow-md;
+    @apply min-h-[8in];
+  }
+  section.footer {
+    @apply w-full;
+    @apply max-w-[8in];
+    @apply mx-auto;
+    @apply lg:w-4/5;
+    @apply px-3;
+    @apply border-t-2;
+    @apply border-t-gray-500;
+
+    @apply flex;
+    @apply place-content-evenly;
+    /* @apply justify-start; */
+    @apply rounded;
+    @apply bg-transparent;
+    @apply px-6;
+    @apply pb-2;
+    @apply pt-2.5;
+    @apply text-xs;
+    @apply font-medium;
+    @apply uppercase;
+    @apply leading-tight;
+  }
+}
+
+@layer base {
+  html {
+    font-family: roboto, sans-serif, system-ui, -apple-system, sans-serif;
+    /* 可选设置默认文本颜色 */
+    /* @apply text-gray-500; */
+    @apply text-neutral-700;
+    @apply dark:text-neutral-300;
+  }
+
+  hr {
+    @apply my-12;
+    @apply dark:border-neutral-600;
+  }
+
+  h1 {
+    @apply mt-0;
+    /* @apply flex;
+    @apply items-center; */
+    @apply text-center;
+    @apply text-3xl;
+    @apply font-bold;
+    @apply leading-8;
+    @apply sm:text-[33px];
+    @apply md:text-4xl;
+    @apply lg:text-[40px];
+  }
+
+  a {
+    @apply underline;
+    @apply text-pink-600;
+    /* @apply inline-block; */
+    /* @apply flex; */
+    /* @apply items-center;
+    @apply justify-start; */
+    @apply rounded;
+    @apply bg-transparent;
+    /* @apply px-6;
+    @apply pb-2;
+    @apply pt-2.5; */
+    /* @apply text-xs; */
+    @apply font-medium;
+    /* @apply uppercase; */
+    /* @apply leading-tight; */
+    @apply transition;
+    @apply duration-150;
+    @apply ease-in-out;
+    @apply hover:bg-neutral-100;
+    @apply focus:bg-neutral-100;
+    @apply focus:outline-none;
+    @apply focus:ring-0;
+    @apply active:bg-neutral-200;
+    @apply dark:hover:bg-neutral-700;
+    @apply dark:focus:bg-neutral-700;
+    @apply dark:active:bg-neutral-700;
+  }
+}
