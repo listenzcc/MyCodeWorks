@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": ".",
+		},
+		{
+			"path": "code",
+		},
+		{
+			"path": "doc",
+		},
+		{
+			"path": "dist",
+		},
+	],
+	"settings": {}
+}
